@@ -97,7 +97,7 @@ const steps: LocalizedSteps = {
   },
   gendir: {
     action:
-      'Đừng phụ thuộc vào `gendir`, thay vào đó bạn nên tìm hiểu cách sử dụng `skipTemplateCodeGen`, <a href=https://github.com/angular/angular/issues/19339#issuecomment-332607471" target="_blank">Đọc thêm</a>'
+      'Đừng phụ thuộc vào `gendir`, thay vào đó bạn nên tìm hiểu cách sử dụng `skipTemplateCodeGen`, <a href="https://github.com/angular/angular/issues/19339#issuecomment-332607471" target="_blank">Đọc thêm</a>'
   },
   'Dynamic ngUpgrade': {
     action:
