@@ -113,7 +113,7 @@ export class AppComponent implements OnInit {
 
     // Refuse to generate recommendations for downgrades
     if (this.to.number < this.from.number) {
-      alert('We do not support downgrading versions of Angular.');
+      alert(this.i18Service.transform('We do not currently support downgrading versions of Angular.'));
       return;
     }
 
@@ -198,7 +198,7 @@ export class AppComponent implements OnInit {
   }
 
   renderPreV6Instructions() {
-    let upgradeStep;
+    let upgradeStep: Partial<Step>;
     const isWindows = /win/i.test(navigator.platform);
     const additionalDeps = this.getAdditionalDependencies(this.to.number);
     const angularVersion = this.getAngularVersion(this.to.number);
@@ -254,7 +254,7 @@ export class AppComponent implements OnInit {
 
       upgradeStep.renderedStep = snarkdown(upgradeStep.action);
 
-      this.duringRecommendations.push(upgradeStep);
+      this.duringRecommendations.push(upgradeStep as Step);
     }
   }
 
