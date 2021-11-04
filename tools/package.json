@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "build": "tsc --build",
+    "check": "node ./dist/tools/src/index.js "
+  }
+}

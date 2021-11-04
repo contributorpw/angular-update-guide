@@ -4,7 +4,7 @@
 
 ```sh
 > cd ./tools
-> rm -rf dist &&  npx tsc --build
+> npm run build
 ```
 
 ## Check
@@ -13,16 +13,17 @@ Logouts `Checkout` objects of
 
 ```js
 interface Checkout {
-  [key: string]: { // Locale
-    missing?: string[]; // Missing, untranslated keys
-    waste?: string[]; // Unnecessary, extra keys
-    present?: string[]; // Found, present keys
-    expected?: string[]; // Expected, required keys
+  [key: string]: {
+    // Locale
+    missing?: string[], // Missing, untranslated keys
+    waste?: string[], // Unnecessary, extra keys
+    present?: string[], // Found, present keys
+    expected?: string[], // Expected, required keys
   };
 }
 ```
 
-Sample
+**Sample out**
 
 ```sh
 Check actions {
@@ -73,11 +74,11 @@ Check labels {
 ### All locales
 
 ```sh
-> node ./tools/dist/tools/src/index.js
+> npm run check
 ```
 
 ### Specific locale
 
 ```sh
->  node ./tools/dist/tools/src/index.js --locale=ru-RU
+>  npm run check -- --locale=ru-RU
 ```

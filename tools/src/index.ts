@@ -32,10 +32,10 @@ const checkLocalesActions = (verbose: Boolean = false) => {
 };
 
 const checkLocalesLabels = async (verbose: Boolean = false) => {
-  const dataTs = await fs.readFile(path.join('src/app/app.component.ts'), 'utf8');
+  const dataTs = await fs.readFile(path.join('./../src/app/app.component.ts'), 'utf8');
   const stringTs = dataTs.replace(/[\r\n]/g, '');
   const matchesTs = stringTs.matchAll(/i18Service\.transform\(['"](.*?)['"]\)/g);
-  const dataHtml = await fs.readFile(path.join('src/app/app.component.html'), 'utf8');
+  const dataHtml = await fs.readFile(path.join('./../src/app/app.component.html'), 'utf8');
   const stringHtml = dataHtml.replace(/[\r\n]/g, '');
   const matchesHtml = stringHtml.matchAll(/{{\s*['"](.*?)['"]\s*\|\s*i18n}}/g);
   const expected = [...Array.from(matchesTs), ...Array.from(matchesHtml)].map((m) => m[1]);
@@ -63,6 +63,6 @@ const checkLocalesLabels = async (verbose: Boolean = false) => {
     checkLabels = checkLabels.find((loc) => loc[passedLocale]);
   }
 
-  console.log('Check actions', checkActions);
-  console.log('Check labels', checkLabels);
+  console.log('Check actions', JSON.stringify(checkActions, null, '  '));
+  console.log('Check labels', JSON.stringify(checkLabels, null, '  '));
 })();
